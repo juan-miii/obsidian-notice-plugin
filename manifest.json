@@ -1,11 +1,11 @@
 {
-	"id": "sample-plugin",
-	"name": "Sample Plugin",
+	"id": "notice-controller",
+	"name": "Notification Controller",
 	"version": "1.0.0",
 	"minAppVersion": "0.15.0",
-	"description": "Demonstrates some of the capabilities of the Obsidian API.",
-	"author": "Obsidian",
-	"authorUrl": "https://obsidian.md",
-	"fundingUrl": "https://obsidian.md/pricing",
+	"description": "Controls notifications displayed on Obsidian.",
+	"author": "Juan Miguel",
+	"authorUrl": "https://github.com/juan-miii",
+	"fundingUrl": "https://github.com/juan-miii",
 	"isDesktopOnly": false
 }
