@@ -1,27 +1,38 @@
-import { App, Editor, MarkdownView, Modal, Notice, Plugin, PluginSettingTab, Setting } from 'obsidian';
+//import { App, Editor, MarkdownView, Modal, Notice, Plugin, PluginSettingTab, Setting } from 'obsidian';
 
-// Remember to rename these classes and interfaces!
+import { Plugin } from 'obsidian';
+
 import { DEFAULT_NOTICE_PLUGIN_SETTINGS, NoticePluginSettings, NoticePluginSettingTab } from 'src/settings/settings';
 
+/**
+ * Represents a notice handling plugin for Obsidian.
+ *
+ * This plugin extends the base functionality provided by Obsidian and offers
+ * features related to managing notices within the application.
+ *
+ * @class
+ * @extends Plugin
+ * @since 1.0.0
+ * @version 1.0.0
+ * @author juan-mii
+ */
 export default class NoticePlugin extends Plugin {
+
+  /**
+   * The settings for the NoticePlugin.
+   *
+   * @type {NoticePluginSettings}
+   * @since 1.0.0
+   */
   settings: NoticePluginSettings;
+
 
   async onload() {
     await this.loadSettings();
-
     this.addSettingTab(new NoticePluginSettingTab(this.app, this));
-		console.log('Added Settings Tab.');
-
-		// controls app readyness
     this.app.workspace.onLayoutReady(() => {
-			console.log('Layout ready.');
-			if (this.settings.onlyStartup) {
-				this.removePluginSetupNotices();
-			} else {
-				this.removeAllNotices();
-			}
+			this.removeStartupNotices();
 		});
-		
   }
 
   async loadSettings() {
@@ -31,57 +42,24 @@ export default class NoticePlugin extends Plugin {
   async saveSettings() {
     await this.saveData(this.settings);
   }
-
-
-	removeAllNotices() {
-		console.log('Enters function removeAllNotices.');
-		
-			const notices = document.querySelectorAll('.notice');
-			// Si existen, los elimina
-			if (notices) {
-				setTimeout(() => {
-					console.log('There are notices.');
-					notices.forEach(notice => notice.remove());
-				}, this.settings.delayInSeconds * 1000);
-			}
-		
-		
-		console.log('End function removeAllNotices.');
-	}
 	
 	/**
-	 * Método para eliminar notificaciones específicas en Obsidian.
+	 * Removes notices on load DOM after a specified delay.
 	 *
-	 * @returns {void} No devuelve ningún valor.
+	 * @memberof NoticePlugin
+	 * @method
+	 * @since 1.0.0
 	 *
-	 * @remarks
-	 * Este método se encarga de eliminar todas las notificaciones que contienen el texto 'plugin setup'.
-	 * Se ejecuta al cargar la página y cada vez que se detecta un cambio en el DOM.
+	 * @returns {void}
 	 */
-	removePluginSetupNotices(): void {
-		console.log('Enters function removePluginSetupNotices.');
-			// Busca todos los divs con la clase 'notice'
-			const notices = document.querySelectorAll('.notice');
-			console.log('There are notices.');
-			// Si existen, verifica si el texto de la notificación contiene 'plugin setup'
-			if (notices) {
-				notices.forEach(notice => {
-					if (notice.textContent && notice.textContent.includes('plugin setup')) {
-						setTimeout(() => {
-
-							console.log('Target setup found.');
-							// Si es así, elimina la notificación
-							notice.remove();
-						}, this.settings.delayInSeconds * 1000);
-
-					}
-				});
-			}
-	
-		console.log('End function removePluginSetupNotices.');
+	removeStartupNotices(): void {
+		const notices = document.querySelectorAll('.notice');
+		if (notices) {
+			setTimeout(() => {
+				notices.forEach(notice => notice.remove());
+			}, this.settings.delayInSeconds * 1000);
+		}
 	}
+
 	
-
-
 }
-

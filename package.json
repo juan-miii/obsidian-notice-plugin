@@ -1,7 +1,7 @@
 {
-	"name": "obsidian-notice-controller",
+	"name": "obsidian-notice-plugin",
 	"version": "1.0.0",
-	"description": "Obsidian plugin to control notification components",
+	"description": "Obsidian plugin to control notification components.",
 	"main": "src/main.js",
 	"scripts": {
 		"dev": "node esbuild.config.mjs",
