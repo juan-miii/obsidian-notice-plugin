@@ -54,7 +54,7 @@ export default class NoticePlugin extends Plugin {
 	 */
 	removeStartupNotices(): void {
 		const notices = document.querySelectorAll('.notice');
-		if (notices) {
+		if (notices && this.settings.delayInSeconds !== 0) {
 			setTimeout(() => {
 				notices.forEach(notice => notice.remove());
 			}, this.settings.delayInSeconds * 1000);
