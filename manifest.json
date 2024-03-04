@@ -3,7 +3,7 @@
 	"name": "Notification Controller",
 	"version": "1.0.0",
 	"minAppVersion": "0.15.0",
-	"description": "Manages notifications at Obsidian startup.",
+	"description": "Manages notifications at startup.",
 	"author": "Juan Miguel",
 	"authorUrl": "https://github.com/juan-miii",
 	"isDesktopOnly": false
