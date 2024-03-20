@@ -23,7 +23,7 @@ The settings for the `NoticePlugin` can be accessed and modified via the setting
 
 ## 📜 Changelog
 
-For a detailed list of changes, check out the [CHANGELOG](.github/CHANGELOG.md).
+For a detailed list of changes, check out the [CHANGELOG](https://github.com/juan-miii/obsidian-notice-plugin/blob/master/.github/CHANGELOG.md).
 
 ## 🛠️ Technologies Used
 
@@ -41,4 +41,4 @@ See https://github.com/obsidianmd/obsidian-api
 
 ## 📄 License
 
-This project is licensed under the terms of the MIT [license](LICENSE).
+This project is licensed under the terms of the MIT [license](https://github.com/juan-miii/obsidian-notice-plugin/blob/master/LICENSE).
