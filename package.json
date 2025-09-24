@@ -12,7 +12,7 @@
 	"author": "Juan Miguel",
 	"license": "MIT",
 	"devDependencies": {
-		"@types/node": "^24.2.1",
+		"@types/node": "^24.5.2",
 		"@typescript-eslint/eslint-plugin": "8.39.1",
 		"@typescript-eslint/parser": "8.39.1",
 		"builtin-modules": "5.0.0",
