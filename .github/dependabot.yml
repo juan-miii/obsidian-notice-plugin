@@ -11,9 +11,17 @@ updates:
     schedule:
       interval: "weekly"
       day: "friday"
+    groups:
+      github-actions-all:
+        patterns:
+          - "*"
   # Enable version updates for npm
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
       interval: "weekly"
       day: "wednesday"
+    groups:
+      npm-all:
+        patterns:
+          - "*"
